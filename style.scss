@@ -1,0 +1,195 @@
+$primary-color: #daf3ea;
+$secondary-color: #85e6c0;
+$tertiary-color: #6bb39b;
+$font-family: "Arima", system-ui;
+$text-color: #000000;
+$spacing: 16px;
+$section-padding: 40px;
+$font-size-heading: 2rem;
+$font-size-text: 1rem;
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+
+}
+
+@mixin flex-center($justify: center, $align: center, $direction: row) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+
+}
+
+.books__header {
+    background-color: $tertiary-color;
+    padding: $spacing;
+    color: white;
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: $spacing;
+        text-align: center;
+    }
+
+    .menu {
+        @include flex-center(space-evenly, center, row); // Centraliza e espaça igualmente os links
+        margin-top: $spacing;
+        position: fixed;
+
+        a {
+            color: white;
+            text-decoration: none;
+            padding: $spacing / 2;
+            font-size: 1.2rem;
+
+            &:hover {
+                color: lighten(white, 15%);
+                border-bottom: 2px solid $tertiary-color;
+            }
+        }
+    }
+}
+
+
+section {
+    padding: $section-padding;
+    text-align: center;
+
+    h2 {
+        font-size: $font-size-heading;
+        color: $tertiary-color;
+        margin-bottom: $spacing;
+    }
+
+    p {
+        font-size: $font-size-text;
+        color: $text-color;
+        margin-bottom: $spacing;
+    }
+
+    // Estilização específica para cada seção
+    &.about {
+        background-color: lighten($secondary-color, 40%);
+
+        .about-images{
+            @include flex-center(space-evenly, center, row); 
+        }
+
+        img {
+            margin-top: $spacing;
+            max-width: 15%;
+        }
+
+    }
+   
+
+
+
+    &.contact {
+        background-color: $primary-color;
+
+        a {
+            color: $tertiary-color;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+// Estilo para cada livro
+.book {
+    transition: 1s all;
+    background-color: #fff;
+    border: .1px solid #e0e0e085;
+    padding: 30px;
+    max-width: 25%;
+    text-align: center;
+
+    // Estilo ao passar o mouse
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        color: $tertiary-color;
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 100%; // Controlando o tamanho da imagem via CSS
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    }
+
+    p {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    .btn-comprar {
+        background-color: $tertiary-color;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 100px;
+        cursor: pointer;
+        transition: 1s all;
+
+        &:hover {
+            background-color: $secondary-color;
+        }
+    }
+}
+
+
+.decoration_title {
+    $bar-width: 50px;
+    $bar-height: 10px;
+    $bar-gap: 15px;
+    $number-of-bars: 3;
+    @include flex-center(space-between, center, row);
+    margin: $spacing 0;
+
+    h2 {
+        font-size: $font-size-heading;
+        color: darken($tertiary-color, 5%);
+        margin: 0 $spacing;
+    }
+
+    .bars-decoration {
+        @include flex-center(space-between, center, row);
+        gap: $spacing;
+
+        // estilizando as barras com width crescente 
+        $i: 1;
+
+        @while $i <=$number-of-bars {
+            .bars-decoration:nth-child(#{$i}) {
+                width: $bar-width - ($bar-gap * ($i - 2));
+                height: $bar-height;
+                background-color: if($i % 2==0, $primary-color, $tertiary-color);
+            }
+
+            $i: $i + 1;
+        }
+    }
+}
