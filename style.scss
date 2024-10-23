@@ -38,7 +38,7 @@ body {
     .menu {
         @include flex-center(space-evenly, center, row); // centraliza e espaça igualmente os links
         margin-top: $spacing;
-        position: fixed;
+     
 
         a {
             color: white;

@@ -17,8 +17,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    margin-top: 16px;
-    position: fixed; }
+    margin-top: 16px; }
     .books__header .menu a {
       color: white;
       text-decoration: none;
