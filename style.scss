@@ -36,7 +36,7 @@ body {
     }
 
     .menu {
-        @include flex-center(space-evenly, center, row); // Centraliza e espaça igualmente os links
+        @include flex-center(space-evenly, center, row); // centraliza e espaça igualmente os links
         margin-top: $spacing;
         position: fixed;
 
@@ -71,7 +71,6 @@ section {
         margin-bottom: $spacing;
     }
 
-    // Estilização específica para cada seção
     &.about {
         background-color: lighten($secondary-color, 40%);
 
@@ -110,7 +109,7 @@ section {
     justify-content: center;
 }
 
-// Estilo para cada livro
+// estilo dos livross
 .book {
     transition: 1s all;
     background-color: #fff;
@@ -119,7 +118,7 @@ section {
     max-width: 25%;
     text-align: center;
 
-    // Estilo ao passar o mouse
+   
     &:hover {
         transform: translateY(-5px);
     }

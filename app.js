@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <img src="${book.imagem}" alt="${book.titulo}" width="200px">
             <p>${book.resumo}</p>
             <button class="btn-comprar">Onde encontrar?</button>
-          `;//caso queria controlar o tamanho da imagem no sass/css, remova a propriedade width="200px"
+          `;
           bookList.appendChild(bookElement);
         });
       })
